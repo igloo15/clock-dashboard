@@ -1,0 +1,26 @@
+.contentWrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1900px;
+  margin: 0 auto;
+  min-height: 650px;
+  gap: 40px;
+  box-sizing: border-box;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1000px) {
+  .contentWrapper {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 10px;
+    min-height: unset;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentWrapper {
+    padding: 0 5px;
+  }
+}

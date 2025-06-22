@@ -1,0 +1,67 @@
+.clockContainer {
+    /* Applied to the individual secondary clock box */
+    background: linear-gradient(135deg, #333333, #111111);
+    border: 1px solid #555;
+    border-radius: 12px;
+    padding: 15px 25px;
+    /* margin handled by parent gap */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+    min-width: 180px;
+    /*max-width: 300px;*/
+    /* Limit individual width when in a row */
+    width: 100%;
+    /* Take full width of parent flex item */
+    box-sizing: border-box;
+}
+
+.clockContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+}
+
+.clockLabel {
+    /* Shared style, could be global but keep local for now */
+    font-size: 1.1em;
+    color: #bbbbbb;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.clockDisplay {
+    font-size: 1.8em;
+    /* Smaller font for secondary */
+    font-weight: bold;
+    color: #00ffaa;
+    text-shadow: none;
+    letter-spacing: 2px;
+    font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 1000px) {
+    .clockContainer {
+        max-width: unset;
+        /* Allow to take more width when stacked */
+        padding: 15px 20px;
+    }
+
+    .clockDisplay {
+        font-size: 1.6em;
+    }
+}
+
+@media (max-width: 480px) {
+    .clockContainer {
+        padding: 12px;
+    }
+
+    .clockLabel {
+        font-size: 1em;
+    }
+
+    .clockDisplay {
+        font-size: 1.2em;
+    }
+}

@@ -1,0 +1,129 @@
+.mainClock {
+    background: #111;
+    border: 2px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.clockLabel {
+    /* Shared style, could be global but keep local for now */
+    font-size: 1.1em;
+    color: #bbbbbb;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.flipDotGrid {
+    /* Renamed class */
+    display: grid;
+    /* grid-template-columns and grid-template-rows set by inline style in component */
+    gap: 3px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 49 / 6;
+}
+
+.dotCell {
+    /* This is the grid cell container */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.disc {
+    /* The actual flipping disc */
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease-in-out;
+    position: relative;
+    border-radius: 2px;
+}
+
+.disc::before {
+    /* Front (off) side */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    /* Off state color */
+    backface-visibility: hidden;
+    transform: rotateX(0deg);
+}
+
+.disc::after {
+    /* Back (on) side - Default (Time Digits) */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccff00;
+    /* Default On state color */
+    box-shadow: 0 0 3px rgba(204, 255, 0, 0.5);
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+}
+
+/* When the DOT CONTAINER has the 'isOn' class, rotate the INNER DISC */
+.dotCell.isOn .disc {
+    transform: rotateX(-180deg);
+}
+
+/* Style adjustments for colon dots */
+.dotCell.colonDot.isOn .disc::after {
+    background-color: #00ffff;
+    /* Different 'on' color for colons (Cyan) */
+    box-shadow: 0 0 3px rgba(0, 255, 255, 0.5);
+}
+
+/* Style adjustments for milliseconds discs when ON */
+.dotCell.msDot.isOn .disc::after {
+    background-color: #ffaa00;
+    /* Different 'on' color for milliseconds (Orange) */
+    box-shadow: 0 0 3px rgba(255, 170, 0, 0.7);
+}
+
+/* Style for milliseconds dots (align the *container* to the bottom) */
+.dotCell.msDot {
+    /* Apply class to the container */
+    align-self: end;
+    /* Align the entire cell content to the bottom */
+    /* background-color: rgba(255, 0, 0, 0.1); /* <-- UNCOMMENT FOR DEBUGGING MS CELL POSITION */
+}
+
+
+@media (max-width: 768px) {
+    .mainClock {
+        padding: 15px;
+        width: 95%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainClock {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .clockLabel {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+}

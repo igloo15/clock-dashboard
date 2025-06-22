@@ -1,0 +1,72 @@
+.buttonAreaControls {
+    width: 100%;
+    min-width: 200px;
+
+
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: #bbbbbb;
+    /* Text color for the title/labels */
+}
+
+.buttonArea {
+    width: 25%;
+    min-width: 200px;
+    background-color: #2a2a4a;
+    border-left: 1px solid #555;
+    padding-top: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+
+    align-items: center;
+    gap: 15px;
+    color: #bbbbbb;
+    /* Text color for the title/labels */
+}
+
+.buttonArea h2 {
+    margin-top: 0;
+    color: #00aaff;
+    font-size: 1.4em;
+    /* Adjust title size */
+}
+
+.buttonArea button {
+    padding: 10px 15px;
+    background-color: #00aaff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    height: 75px;
+    /* Make buttons fill the area */
+    max-width: 150px;
+    /* Limit button width */
+    text-align: center;
+}
+
+.buttonArea button:hover {
+    background-color: #007bb5;
+}
+
+@media (max-width: 1000px) {
+    .buttonArea {
+        width: 100%;
+        min-width: unset;
+        border-left: none;
+        border-top: 1px solid #555;
+        padding-top: 30px;
+    }
+}

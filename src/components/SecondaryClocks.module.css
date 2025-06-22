@@ -1,0 +1,18 @@
+.secondaryClocks {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1000px) {
+    .secondaryClocks {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-top: 10px;
+    }
+}
